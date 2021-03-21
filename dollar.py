@@ -1,7 +1,17 @@
 import requests
 from bs4 import BeautifulSoup
 
-search = "dollar"
+def moeda():
+    try:
+        y = int(input("Deseja converter dollar (1) ou euro (2)?"))
+        if y == 1:
+            return "dollar"
+        elif y == 2:
+            return "euro"
+    except:
+        print("Valor invalido")
+
+search = moeda()
 url = f"https://www.google.com/search?q={search}"
 r = requests.get(url)
 s = BeautifulSoup(r.text, "html.parser")
@@ -19,7 +29,7 @@ t = float(t)
 x = 0
 while x == 0:
     try:
-        dig = input("Digite um valor a ser convertido em dollar:")
+        dig = input(f"Digite um valor a ser convertido em {search}:")
         if dig == "":
             x += 1
             print("\nGoodBye!!!")
