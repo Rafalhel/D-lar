@@ -39,7 +39,6 @@ while x == 0:
             mt = str(mt)
             mt = mt.replace(".", ",")
             print(f"Receberá R${mt} reais")
-
     except ValueError:
         print("Valor inválido")
 # sal = t * 500
