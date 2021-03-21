@@ -10,6 +10,7 @@ def moeda():
             return "euro"
     except:
         print("Valor invalido")
+
 search = moeda()
 url = f"https://www.google.com/search?q={search}"
 r = requests.get(url)
@@ -17,6 +18,7 @@ s = BeautifulSoup(r.text, "html.parser")
 update = s.find("div", class_="BNeawe").text
 print(update)
 t = ""
+
 for i in update:
     if i == ",":
         t += "."
@@ -40,7 +42,3 @@ while x == 0:
             print(f"Receberá R${mt} reais")
     except ValueError:
         print("Valor inválido")
-# sal = t * 500
-# sal = str(sal)
-# sal = sal.replace(".", ",")
-# print(f"Receberá R${sal} reais")
