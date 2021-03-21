@@ -9,7 +9,7 @@ def moeda():
         elif y == 2:
             return "euro"
     except:
-        print("Valor invalido")
+        return "dollar"
 
 search = moeda()
 url = f"https://www.google.com/search?q={search}"
