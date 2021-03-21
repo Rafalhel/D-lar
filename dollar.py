@@ -10,7 +10,6 @@ def moeda():
             return "euro"
     except:
         print("Valor invalido")
-
 search = moeda()
 url = f"https://www.google.com/search?q={search}"
 r = requests.get(url)
