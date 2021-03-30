@@ -1,17 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 
-def moeda():
-    try:
-        y = int(input("Deseja converter dollar (1) ou euro (2)?"))
-        if y == 1:
-            return "dollar"
-        elif y == 2:
-            return "euro"
-    except:
-        return "dollar"
-
-search = moeda()
+search = "dollar"
 url = f"https://www.google.com/search?q={search}"
 r = requests.get(url)
 s = BeautifulSoup(r.text, "html.parser")
