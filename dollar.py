@@ -28,12 +28,6 @@ rep = 1
 dol = []
 dia = []
 reais = []
-with open('bd.csv', 'r') as f:
-    leitor = csv.reader(f)
-    for i in leitor:
-        dol.append(i[0])
-        dia.append(i[3])
-        reais.append(i[2])
 while x == 0:
     data_e_hora_atuais = datetime.now()
     data_e_hora_em_texto = data_e_hora_atuais.strftime('%d/%m/%Y')
@@ -60,6 +54,12 @@ while x == 0:
 
     except ValueError:
         print("Valor inválido")
+with open('bd.csv', 'r') as f:
+    leitor = csv.reader(f)
+    for i in leitor:
+        dol.append(i[0])
+        dia.append(i[3])
+        reais.append(i[2])
 matplotlib.pyplot.plot(dia, dol)
 matplotlib.pyplot.xlabel('Data')
 matplotlib.pyplot.ylabel('Valor do Dollar')
