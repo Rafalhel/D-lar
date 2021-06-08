@@ -1,5 +1,9 @@
 import requests
 from bs4 import BeautifulSoup
+import os
+import csv
+import matplotlib.pyplot
+from datetime import datetime
 
 search = "dollar"
 url = f"https://www.google.com/search?q={search}"
@@ -18,17 +22,45 @@ for i in update:
         break
 t = float(t)
 x = 0
+valores = []
+valoresn = []
+rep = 1
+dol = []
+dia = []
+with open('bd.csv', 'r') as f:
+    leitor = csv.reader(f)
+    for i in leitor:
+        dol.append(i[0])
+        dia.append(i[3])
 while x == 0:
+    data_e_hora_atuais = datetime.now()
+    data_e_hora_em_texto = data_e_hora_atuais.strftime('%d/%m/%Y %H:%M')
     try:
-        dig = input(f"Digite um valor a ser convertido em {search}:")
+        dig = input(f"Digite um valor a ser convertido em {search}: R$")
+
+
         if dig == "":
             x += 1
             print("\nGoodBye!!!")
         else:
             dig = float(dig)
             mt = t * dig
+            cs = mt
             mt = str(mt)
             mt = mt.replace(".", ",")
-            print(f"Receberá R${mt} reais")
+            valores.append(f'${update} = R${mt}')
+            valoresn.append(mt)
+            rep += 1
+            for i in valores:
+                print(i)
+            with open('bd.csv', 'a') as f:
+                writer = csv.writer(f, lineterminator='\r')
+                writer.writerow([t] + [dig] + [cs] + [data_e_hora_em_texto])
+
+
+
+
     except ValueError:
         print("Valor inválido")
+matplotlib.pyplot.plot(dia, dol)
+matplotlib.pyplot.show()
