@@ -57,9 +57,6 @@ while x == 0:
                 writer = csv.writer(f, lineterminator='\r')
                 writer.writerow([t] + [dig] + [cs] + [data_e_hora_em_texto])
 
-
-
-
     except ValueError:
         print("Valor inválido")
 matplotlib.pyplot.plot(dia, dol)
