@@ -57,9 +57,11 @@ while x == 0:
 with open('bd.csv', 'r') as f:
     leitor = csv.reader(f)
     for i in leitor:
-        dol.append(i[0])
+        dol.append(float(i[0]))
         dia.append(i[3])
         reais.append(i[2])
+print(dia)
+print(dol)
 matplotlib.pyplot.plot(dia, dol)
 matplotlib.pyplot.xlabel('Data')
 matplotlib.pyplot.ylabel('Valor do Dollar')
