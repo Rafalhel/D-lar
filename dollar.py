@@ -4,11 +4,11 @@ import os
 import csv
 import matplotlib.pyplot
 from datetime import datetime
-
-search = "dollar"
+search = "dolar"
 url = f"https://www.google.com/search?q={search}"
 r = requests.get(url)
-s = BeautifulSoup(r.text, "html.parser")
+s = BeautifulSoup(
+r.text, "html.parser")
 update = s.find("div", class_="BNeawe").text
 print(update)
 t = ""
@@ -65,4 +65,5 @@ print(dol)
 matplotlib.pyplot.plot(dia, dol)
 matplotlib.pyplot.xlabel('Data')
 matplotlib.pyplot.ylabel('Valor do Dollar')
+matplotlib.pyplot.savefig('grafico.png')
 matplotlib.pyplot.show()
