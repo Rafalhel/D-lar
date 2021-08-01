@@ -70,7 +70,7 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
-        self.label.setText(_translate("MainWindow", "Digite o valor em dolares para converter em reais:"))
+        self.label.setText(_translate("MainWindow", f"Valor do dolar é de R${self.update[0:4]}.  Digite o valor em dolares para converter em reais:"))
         self.pushButton.setText(_translate("MainWindow", "Converter"))
 
     def pesquisar(self):
